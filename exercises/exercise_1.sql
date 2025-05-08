@@ -74,37 +74,23 @@ select * from elements3;
 -- f)
 
 /*
+alter table colors2
+add code as '#' + format(red, 'X2') + format(green, 'X2') + format(blue, 'X2')
+select * from Colors2; 
 */
 
 
-
-
-
--- select 
---     [name],
---     red, 
---     green,
---     blue 
--- into Colors2
--- from colors;
-
-
-select * from Colors2;
+-- g)
 
 /*
-
-Heres how I would do it in Python:
-
-hex = "#"
-dic = {10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"}
-for i in [red, green, blue]:
-    result = i / 16
-    integer = int(result)
-    decimal = int((result - integer) * 16)
-    for j in [integer, decimal]:
-        if j < 10:
-            hex += str(j)
-        else: 
-            hex += str(dic[j])
-
+select [integer], [string] into Types2 from types;
+select 
+    [integer],
+    cast(concat('0.', format([integer], '00')) as float) as [float],
+    [string],
+    concat('2019-01-', format([integer], '00'), ' 09:', format([integer], '00'), ':00.0000000') as [datatime]
+    [integer] % 2 as [bool]
+from types2;
+select * from Types2;
 */
+
