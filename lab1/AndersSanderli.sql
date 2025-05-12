@@ -115,3 +115,28 @@ GO
 
 -- G
 
+select 
+    p.Id,
+    p.ProductName,
+    s.CompanyName,
+    c.CategoryName
+from 
+    company.products p 
+    join company.suppliers s on p.SupplierId = s.Id 
+    join company.categories c on p.CategoryId = c.Id
+
+GO
+
+select 
+    r.Id,
+    r.RegionDescription,
+    count(e.EmployeeId) as 'NumberOfEmployees'
+from 
+    company.regions r 
+    join company.territories t on r.Id = t.RegionId
+    join company.employee_territory e on t.Id = e.TerritoryId
+group by 
+    r.Id,
+    r.RegionDescription
+
+GO

@@ -21,7 +21,7 @@ create table cities (
 
 insert into cities values (1, 'Stockholm', 1);
 insert into cities values (2, 'Gothenburg', 1);
-insert into cities values (3, 'Malm�', 1);
+insert into cities values (3, 'Malmö', 1);
 insert into cities values (4, 'Oslo', 2);
 insert into cities values (5, 'Bergen', 2);
 insert into cities values (6, 'Copenhagen', 3);
