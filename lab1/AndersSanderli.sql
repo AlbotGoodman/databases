@@ -51,28 +51,67 @@ HAVING COUNT(UserName) > 1;
 
 GO
 
--- while-loop that increases 
--- the number of letters to include 
--- until there are no duplicates?
-
-
-declare @counter as int = 3
-declare @duplicates as int = 1
-while @duplicates > 0
--- allt nedanför måste jag göra om så att det fungerar med det ovanför
-    select username 
-    from newusers2 
-    group by username 
-    having count(username) > 1
-begin 
-    update newusers2
-    set username = concat(
-        lower(left(translate(firstname, 'åäö', 'aao'), @counter)),
-        lower(left(translate(lastname, 'åäö', 'aao'), @counter))
+ALTER TABLE NewUsers
+ALTER COLUMN UserName NVARCHAR(12);
+DECLARE @Counter AS INT = 3;
+DECLARE @Duplicates AS INT = 1;
+WHILE @Duplicates > 0
+BEGIN 
+    DROP TABLE IF EXISTS #Dupes;
+    SELECT UserName
+    INTO #Dupes
+    FROM NewUsers 
+    GROUP BY UserName 
+    HAVING COUNT(UserName) > 1;
+    SELECT @Duplicates = COUNT(*) FROM #Dupes;
+    UPDATE NewUsers
+    SET UserName = CONCAT(
+        LOWER(LEFT(TRANSLATE(FirstName, 'åäö', 'aao'), @Counter)),
+        LOWER(LEFT(TRANSLATE(LastName, 'åäö', 'aao'), @Counter))
     )
-    set @counter = @counter + 1
-end 
+    WHERE UserName IN (SELECT UserName FROM #Dupes);
+    SET @Counter = @Counter + 1;
+    DROP TABLE #Dupes;
+    IF @Counter > 10  -- just a fail safe
+    BEGIN 
+        BREAK;
+    END
+END 
+
+GO
+
+DELETE FROM NewUsers
+WHERE CAST(SUBSTRING(ID, 1, 1) AS INT) < 7 AND Gender = 'Female';
+
+GO
+
+INSERT INTO NewUsers (
+    ID, 
+    UserName,  -- Could be generated
+    [Password], 
+    FirstName, 
+    LastName, 
+    [Name],  -- Could be generated
+    Gender,  -- Could be generated
+    Email, 
+    Phone
+)
+VALUES (
+    '670327-6521', 
+    'malfre',  -- Could be generated
+    '1efa1bhwua7ppb0twn1tr1wu6702dkss', 
+    'Malin', 
+    'Frenning', 
+    'Malin Frenning',  -- Could be generated
+    'Female',  -- Could be generated
+    'malin.frenning@ri.se', 
+    '010-5165389'
+);
+
+GO
 
 
+-- Company (Joins)
 
-select * from newusers2;
+-- G
+
