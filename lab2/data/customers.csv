@@ -1,4 +1,4 @@
-ID,Firstname,Lastname,Email,MembershipLevel
+ID,FirstName,LastName,Email,MembershipLevel
 1,Erik,Andersson,erik.andersson@gmail.com,Bronze
 2,Anna,Johansson,blue.walk.1234@proton.me,Silver
 3,Lars,Karlsson,lars.karlsson@outlook.com,Bronze
@@ -20,5 +20,5 @@ ID,Firstname,Lastname,Email,MembershipLevel
 19,Michael,Williams,michael.williams@outlook.com,Gold
 20,Sofia,Olsson,book.talk.3690@proton.me,Bronze
 21,Per,Karlsson,per.karlsson@gmail.com,Silver
-22,Paolo,Rossi,year.grow.4701@proton.me,Bronze
+22,Ghias,Nazari,year.grow.4701@proton.me,Bronze
 23,Ingrid,Andersson,ingrid.andersson@outlook.com,Platinum
