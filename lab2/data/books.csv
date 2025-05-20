@@ -1,49 +1,49 @@
-ISBN,Title,Language,Price,PublicationDate,AuthorID
-9780765376671,The Way of Kings,English,349,2010-08-31,1
-9781429949620,Words of Radiance,English,329,2014-03-04,1
-9781250297143,Oathbringer,English,319,2017-11-14,1
-9781250757302,Rythm of War,English,349,2020-11-17,1
-9781250319180,Winds and Truth,English,399,2024-12-06,1
-9781250868282,The Final Empire,English,199,2006-07-17,1
-9781250868299,The Well of Ascension,English,199,2007-07-17,1
-9781250868312,The Hero of Ages,English,199,2008-02-17,1
-9780553381689,A Game of Thrones,English,249,1996-08-06,2
-9780553381696,A Clash of Kings,English,249,1999-02-16,2
-9780553381702,A Storm of Swords,English,249,2000-08-08,2
-9780553582024,A Feast for Crows,English,269,2005-10-17,2
-9780553582017,A Dance with Dragons,English,299,2011-07-12,2
-9780702309519,The Ballad of Songbirds and Snakes,English,299,2020-05-19,3
-9781546171461,Sunrise on the Reaping,English,349,2021-02-16,3
-9780439023528,The Hunger Games,English,199,2008-09-14,3
-9780545586177,Cathing Fire,English,199,2009-09-01,3
-9780545663267,Mockingjay,English,199,2010-08-24,3
-9780765382030,The Three-Body Problem,Simplified Chinese,219,2006-05-01,4
-9780765386694,The Dark Forest,Simplified Chinese,249,2008-05-01,4
-9780765386632,Death's End,Simplified Chinese,269,2010-11-01,4
-9780316310314,The Cruel Prince,English,429,2018-01-02,5
-9780316310321,The Wicked King,English,399,2019-01-01,5
-9780316310376,The Queen of Nothing,English,399,2019-12-10,5
-9789170017278,Krigarhjärta,Swedish,159,2011-08-18,6
-9789170018251,Isöhäxan,Swedish,169,2012-08-23,6
-9789175033136,Profetens Tid,Swedish,179,2014-08-21,6
-9781250768681,The Eye of the World,English,199,1990-01-15,7
-9780765334343,The Great Hunt,English,199,1990-11-15,7
-9781250251497,The Dragon Reborn,English,199,1991-10-15,7
-9781250251923,The Shadow Rising,English,219,1992-09-15,7
-9780312854270,The Fires of Heaven,English,219,1993-10-15,7
-9780312854287,Lord of Chaos,English,239,1994-10-15,7
-9780312857677,A Crown of Swords,English,239,1996-05-15,7
-9780312857691,The Path of Daggers,English,239,1998-10-20,7
-9780312864255,Winter's Heart,English,259,2000-11-07,7
-9780312864590,Crossroads of Twilight,English,259,2003-01-07,7
-9780312873073,Knife of Dreams,English,279,2005-10-11,7
-9780765302304,The Gathering Storm,English,299,2009-10-27,7
-9781250252616,Towers of Midnight,English,299,2010-11-02,7
-9780765325952,A Memory of Light,English,349,2013-01-08,7
-9781429955966,Dangerous Women,English,229,2013-12-03,8
-9780804179607,Rogues,English,239,2014-06-17,8
-9780547928227,The Hobbit,English,129,1937-09-21,9
-9780547952017,The Fellowship of the Ring,English,199,1954-07-29,9
-9780358380245,The Two Towers,English,199,1055-04-21,9
-9780358380252,The Return of the King,English,199,1955-10-20,9
-9780544338012,The Silmarillion,English,179,1977-09-15,9
+ISBN,Title,Language,Price,PublicationDate
+9780765376671,The Way of Kings,English,349,2010-08-31
+9781429949620,Words of Radiance,English,329,2014-03-04
+9781250297143,Oathbringer,English,319,2017-11-14
+9781250757302,Rythm of War,English,349,2020-11-17
+9781250319180,Winds and Truth,English,399,2024-12-06
+9781250868282,The Final Empire,English,199,2006-07-17
+9781250868299,The Well of Ascension,English,199,2007-07-17
+9781250868312,The Hero of Ages,English,199,2008-02-17
+9780553381689,A Game of Thrones,English,249,1996-08-06
+9780553381696,A Clash of Kings,English,249,1999-02-16
+9780553381702,A Storm of Swords,English,249,2000-08-08
+9780553582024,A Feast for Crows,English,269,2005-10-17
+9780553582017,A Dance with Dragons,English,299,2011-07-12
+9780702309519,The Ballad of Songbirds and Snakes,English,299,2020-05-19
+9781546171461,Sunrise on the Reaping,English,349,2021-02-16
+9780439023528,The Hunger Games,English,199,2008-09-14
+9780545586177,Cathing Fire,English,199,2009-09-01
+9780545663267,Mockingjay,English,199,2010-08-24
+9780765382030,The Three-Body Problem,Simplified Chinese,219,2006-05-01
+9780765386694,The Dark Forest,Simplified Chinese,249,2008-05-01
+9780765386632,Death's End,Simplified Chinese,269,2010-11-01
+9780316310314,The Cruel Prince,English,429,2018-01-02
+9780316310321,The Wicked King,English,399,2019-01-01
+9780316310376,The Queen of Nothing,English,399,2019-12-10
+9789170017278,Krigarhjärta,Swedish,159,2011-08-18
+9789170018251,Isöhäxan,Swedish,169,2012-08-23
+9789175033136,Profetens Tid,Swedish,179,2014-08-21
+9781250768681,The Eye of the World,English,199,1990-01-15
+9780765334343,The Great Hunt,English,199,1990-11-15
+9781250251497,The Dragon Reborn,English,199,1991-10-15
+9781250251923,The Shadow Rising,English,219,1992-09-15
+9780312854270,The Fires of Heaven,English,219,1993-10-15
+9780312854287,Lord of Chaos,English,239,1994-10-15
+9780312857677,A Crown of Swords,English,239,1996-05-15
+9780312857691,The Path of Daggers,English,239,1998-10-20
+9780312864255,Winter's Heart,English,259,2000-11-07
+9780312864590,Crossroads of Twilight,English,259,2003-01-07
+9780312873073,Knife of Dreams,English,279,2005-10-11
+9780765302304,The Gathering Storm,English,299,2009-10-27
+9781250252616,Towers of Midnight,English,299,2010-11-02
+9780765325952,A Memory of Light,English,349,2013-01-08
+9781429955966,Dangerous Women,English,229,2013-12-03
+9780804179607,Rogues,English,239,2014-06-17
+9780547928227,The Hobbit,English,129,1937-09-21
+9780547952017,The Fellowship of the Ring,English,199,1954-07-29
+9780358380245,The Two Towers,English,199,1055-04-21
+9780358380252,The Return of the King,English,199,1955-10-20
+9780544338012,The Silmarillion,English,179,1977-09-15
