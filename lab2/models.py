@@ -1,6 +1,6 @@
 from datetime import date, datetime
 from typing import Optional, List
-from sqlalchemy import create_engine, text, Integer, BigInteger, String, ForeignKey, Date, CheckConstraint, select, func, case, text, cast, DDL, event
+from sqlalchemy import create_engine, text, Integer, BigInteger, Float, String, ForeignKey, Date, CheckConstraint, select, func, case, text, cast, DDL, event
 from sqlalchemy.engine import URL
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship, Session
 from sqlalchemy.exc import ProgrammingError
@@ -136,8 +136,20 @@ class AuthorOverview(Base):
     inventory: Mapped[str] = mapped_column(String(12))
 
 
+class CustomerOverview(Base):
+    __tablename__ = "customer_overview"
+    __table_args__ = {"info": {"is_view": True}}
+
+    # id, customer, membership_level, total_orders, total_amount, average_rating
+    id: Mapped[int] = mapped_column(primary_key=True)
+    customer: Mapped[str] = mapped_column(String(64))
+    membership_level: Mapped[str] = mapped_column(String(10))
+    total_orders: Mapped[int] = mapped_column(Integer)
+    total_amount: Mapped[int] = mapped_column(Integer)
+    average_rating: Mapped[float] = mapped_column(Float)
+
+
 author_overview_def = DDL("""
-    if object_id('author_overview', 'V') is not null drop view author_overview
     create view author_overview as
     select 
         a.id,
@@ -162,6 +174,7 @@ author_overview_def = DDL("""
 
 
 customer_overview_def = DDL("""
+    create view customer_overview as
     select
         c.id,
         concat(c.first_name, ' ', c.last_name) as customer,
