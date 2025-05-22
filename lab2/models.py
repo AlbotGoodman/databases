@@ -127,7 +127,7 @@ class Reviews(Base):
 
 class AuthorOverview(Base):
     __tablename__ = "author_overview"
-    __table_args__ = {"info": {"is_view": True}}
+    __table_args__ = {'extend_existing': True}
 
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(64))
@@ -138,7 +138,7 @@ class AuthorOverview(Base):
 
 class CustomerOverview(Base):
     __tablename__ = "customer_overview"
-    __table_args__ = {"info": {"is_view": True}}
+    __table_args__ = {'extend_existing': True}
 
     # id, customer, membership_level, total_orders, total_amount, average_rating
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -197,5 +197,4 @@ customer_overview_def = DDL("""
         c.first_name,
         c.last_name,
         c.membership_level
-    order by total_amount desc
 """)

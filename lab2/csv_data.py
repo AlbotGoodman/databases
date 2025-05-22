@@ -6,10 +6,10 @@ def read_upload(Base, engine):
     csv_paths = [f"data/{table}.csv" for table in table_names]
     column_names = [[col.name for col in cls.__table__.columns] for cls in Base.__subclasses__()]
     identity_tables = ["authors", "stores", "customers", "orders"]
-    view_definitions = ["author_overview", "customer_overview"]
+    views = ["author_overview", "customer_overview"]
 
     for table, path, cols in zip(table_names, csv_paths, column_names):
-        if table in view_definitions:
+        if table in views:
             break
         df = pd.read_csv(path, names=cols, header=0)
         if table in identity_tables and "id" in df.columns:
