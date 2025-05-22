@@ -6,10 +6,10 @@ ID,FirstName,LastName,Email,MembershipLevel
 5,John,Smith,john.smith@gmail.com,Gold
 6,Karin,Eriksson,time.feel.9012@proton.me,Silver
 7,Anders,Larsson,anders.larsson@outlook.com,Bronze
-8,Eva,Olsson,sun.know.3456@proton.me,Bronze
+8,Eva,Olsson,sun.know.3456@proton.me,Silver
 9,Johan,Persson,johan.persson@gmail.com,Silver
 10,Lisa,Svensson,cat.read.7890@proton.me,Bronze
-11,Sarah,Jones,sarah.jones@outlook.com,Gold
+11,Sarah,Jones,sarah.jones@outlook.com,Platinum
 12,Sven,Gustafsson,bird.love.2345@proton.me,Bronze
 13,Lena,Lindberg,lena.lindberg@gmail.com,Silver
 14,Karl,Lindström,life.work.6789@proton.me,Bronze
@@ -19,6 +19,6 @@ ID,FirstName,LastName,Email,MembershipLevel
 18,Emma,Bergman,moon.play.2589@proton.me,Bronze
 19,Michael,Williams,michael.williams@outlook.com,Gold
 20,Sofia,Olsson,book.talk.3690@proton.me,Bronze
-21,Per,Karlsson,per.karlsson@gmail.com,Silver
+21,Per,Karlsson,per.karlsson@gmail.com,Bronze
 22,Ghias,Nazari,year.grow.4701@proton.me,Bronze
 23,Ingrid,Andersson,ingrid.andersson@outlook.com,Platinum
