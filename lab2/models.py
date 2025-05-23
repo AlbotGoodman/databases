@@ -1,10 +1,7 @@
-from datetime import date, datetime
+from datetime import date
 from typing import Optional, List
-from sqlalchemy import create_engine, text, Integer, BigInteger, Float, String, ForeignKey, Date, CheckConstraint, select, func, case, text, cast, DDL, event
-from sqlalchemy.engine import URL
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship, Session
-from sqlalchemy.exc import ProgrammingError
-import pandas as pd
+from sqlalchemy import Integer, BigInteger, Float, String, ForeignKey, Date, CheckConstraint
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 
 class Base(DeclarativeBase):
@@ -147,54 +144,3 @@ class CustomerOverview(Base):
     total_orders: Mapped[int] = mapped_column(Integer)
     total_amount: Mapped[int] = mapped_column(Integer)
     average_rating: Mapped[float] = mapped_column(Float)
-
-
-author_overview_def = DDL("""
-    create view author_overview as
-    select 
-        a.id,
-        concat(a.first_name, ' ', a.last_name) as name,
-        cast(datediff(year, a.birth_date, cast(getdate() AS date)) as nvarchar(max)) + ' years' as age,
-        cast(count(distinct b.isbn) as nvarchar(max)) + ' copies' as titles,
-        cast(sum(i.amount * b.price) as nvarchar(max)) + ' SEK' as inventory
-    from 
-        authors a 
-    join
-        book_authors ba on a.id = ba.author_id
-    join
-        books b on ba.isbn = b.isbn
-    join 
-        inventory i on b.isbn = i.isbn
-    group by
-        a.id,
-        a.first_name,
-        a.last_name,
-        a.birth_date
-""")
-
-
-customer_overview_def = DDL("""
-    create view customer_overview as
-    select
-        c.id,
-        concat(c.first_name, ' ', c.last_name) as customer,
-        c.membership_level as membership_level,
-        count(distinct o.id) as total_orders,
-        coalesce(sum(distinct od.quantity * b.price), 0) as total_amount,
-        case 
-            when avg(r.rating * 1.0) is null then 'None'
-            else format(avg(r.rating * 1.0), 'N2')
-        end as average_rating
-    from customers c 
-    left join orders o on c.id = o.customer_id
-    left join order_details od on o.id = od.order_id
-    left join books b on od.isbn = b.isbn
-    left join book_authors ba on b.isbn = ba.isbn
-    left join authors a on ba.author_id = a.id 
-    left join reviews r on c.id = r.customer_id
-    group by 
-        c.id,
-        c.first_name,
-        c.last_name,
-        c.membership_level
-""")

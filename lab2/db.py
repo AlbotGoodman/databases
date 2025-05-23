@@ -6,10 +6,10 @@ from sqlalchemy.exc import ProgrammingError
 
 def get_engine(server: str, username: str, password: str, database_name: Optional[str] = None):
     if database_name:
-        conn_str = f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database_name};UID={username};PWD={password}"
+        connection_string = f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database_name};UID={username};PWD={password}"
     else:
-        conn_str = f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};UID={username};PWD={password}"
-    url = URL.create("mssql+pyodbc", query={"odbc_connect": conn_str})
+        connection_string = f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};UID={username};PWD={password}"
+    url = URL.create("mssql+pyodbc", query={"odbc_connect": connection_string})
     return create_engine(url)
 
 
