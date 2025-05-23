@@ -31,6 +31,14 @@ The Python implementation provides book search functionality with case-insensiti
 
 ## Setup and Usage
 
-The system requires Microsoft SQL Server with ODBC Driver 17. Database credentials are configured in the main notebook (needs to be changed for your local server), which handles database creation, table setup, demo data loading, and view creation automatically. The included demo data contains realistic information for 10 authors, 48 books, 4 stores, and 23 customers with complete order and review history.
+The system requires Microsoft SQL Server with ODBC Driver 17. Database credentials (needs to be updated for your local server) are configured in **the main notebook**, which handles database creation, table setup, demo data loading, and view creation automatically. For convenience the database is stored as a backup in the data folder. 
+
+The included demo data contains realistic information for 10 authors, 48 books, 4 stores, and 23 customers with complete order and review history.
 
 Users can search for books through the provided search function and access analytical data through pandas DataFrames connected to the database views. The implementation demonstrates proper ORM usage with SQLAlchemy while maintaining the flexibility to execute raw SQL when needed for complex analytical queries or further calculations with pandas. 
+
+## Limitations
+
+As of now the code handles creation of the database in sequence. There's no error handling for running the script again which will result in errors. 
+
+The ability to move inventory across stores is not implemented neither. Also necessary for the assignment is to create a backup file (.bak) but my attempts has not been successful so far. 
