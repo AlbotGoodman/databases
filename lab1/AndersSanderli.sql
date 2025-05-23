@@ -19,6 +19,29 @@ SET Operator = TRIM(Operator)
 
 GO
 
+-- VG
+
+update moonmissions 
+set Spacecraft = trim(substring(Spacecraft, 1, charindex('(', Spacecraft) -1))
+where charindex('(', Spacecraft) > 0
+
+GO
+
+select 
+    operator, 
+    [mission type],
+    count(*) as [mission count]
+from SuccessfulMissions
+group by 
+    operator, 
+    [mission type]
+having count(*) > 1
+order by 
+    operator, 
+    [mission type]
+
+GO
+
 
 -- USERS
 
@@ -110,6 +133,27 @@ VALUES (
 
 GO
 
+-- VG
+
+select * from newusers
+
+select 
+    gender,
+    avg(
+        datediff(
+            year, 
+            cast('19' + 
+                left([id], 2) + '-' + 
+                substring([id], 3, 2) + '-' + 
+                substring([id], 5, 2) as date), 
+            cast(getdate() as date)
+        )
+    ) as [average age]
+from newusers
+group by gender
+
+GO
+
 
 -- Company (Joins)
 
@@ -140,3 +184,22 @@ group by
     r.RegionDescription
 
 GO
+
+-- VG
+
+select
+    e.id,
+    concat(e.TitleOfCourtesy, ' ', e.FirstName, ' ', e.LastName) as [name],
+    case 
+        when e2.ReportsTo is null
+        then 'Nobody!'
+        else concat(e2.TitleOfCourtesy, ' ', e2.FirstName, ' ', e2.LastName)
+    end as [reports to]
+from company.employees e 
+left join company.employees e2 on e2.id = e2.reportsto 
+
+
+
+
+
+select * from company.employees
