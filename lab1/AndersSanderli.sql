@@ -21,24 +21,24 @@ GO
 
 -- VG
 
-update moonmissions 
-set Spacecraft = trim(substring(Spacecraft, 1, charindex('(', Spacecraft) -1))
-where charindex('(', Spacecraft) > 0
+UPDATE MoonMissions 
+SET Spacecraft = TRIM(SUBSTRING(Spacecraft, 1, CHARINDEX('(', Spacecraft) -1))
+WHERE CHARINDEX('(', Spacecraft) > 0
 
 GO
 
-select 
-    operator, 
-    [mission type],
-    count(*) as [mission count]
-from SuccessfulMissions
-group by 
-    operator, 
-    [mission type]
-having count(*) > 1
-order by 
-    operator, 
-    [mission type]
+SELECT 
+    Operator, 
+    [Mission type],
+    COUNT(*) AS [Mission count]
+FROM SuccessfulMissions
+GROUP BY 
+    Operator, 
+    [Mission type]
+HAVING COUNT(*) > 1
+ORDER BY 
+    Operator, 
+    [Mission type]
 
 GO
 
@@ -135,22 +135,20 @@ GO
 
 -- VG
 
-select * from newusers
-
-select 
-    gender,
-    avg(
-        datediff(
-            year, 
-            cast('19' + 
-                left([id], 2) + '-' + 
-                substring([id], 3, 2) + '-' + 
-                substring([id], 5, 2) as date), 
-            cast(getdate() as date)
+SELECT 
+    Gender,
+    AVG(
+        DATEDIFF(
+            YEAR, 
+            CAST('19' + 
+                LEFT([id], 2) + '-' + 
+                SUBSTRING([id], 3, 2) + '-' + 
+                SUBSTRING([id], 5, 2) AS DATE), 
+            CAST(GETDATE() AS DATE)
         )
-    ) as [average age]
-from newusers
-group by gender
+    ) AS [Average age]
+FROM NewUsers
+GROUP BY Gender
 
 GO
 
@@ -159,27 +157,27 @@ GO
 
 -- G
 
-select 
+SELECT 
     p.Id,
     p.ProductName,
     s.CompanyName,
     c.CategoryName
-from 
+FROM 
     company.products p 
-    join company.suppliers s on p.SupplierId = s.Id 
-    join company.categories c on p.CategoryId = c.Id
+    JOIN company.suppliers s on p.SupplierId = s.Id 
+    JOIN company.categories c on p.CategoryId = c.Id
 
 GO
 
-select 
+SELECT 
     r.Id,
     r.RegionDescription,
-    count(e.EmployeeId) as 'NumberOfEmployees'
-from 
+    COUNT(e.EmployeeId) AS 'NumberOfEmployees'
+FROM 
     company.regions r 
-    join company.territories t on r.Id = t.RegionId
-    join company.employee_territory e on t.Id = e.TerritoryId
-group by 
+    JOIN company.territories t ON r.Id = t.RegionId
+    JOIN company.employee_territory e ON t.Id = e.TerritoryId
+GROUP BY 
     r.Id,
     r.RegionDescription
 
@@ -187,19 +185,15 @@ GO
 
 -- VG
 
-select
-    e.id,
-    concat(e.TitleOfCourtesy, ' ', e.FirstName, ' ', e.LastName) as [name],
-    case 
-        when e2.ReportsTo is null
-        then 'Nobody!'
-        else concat(e2.TitleOfCourtesy, ' ', e2.FirstName, ' ', e2.LastName)
-    end as [reports to]
-from company.employees e 
-left join company.employees e2 on e2.id = e2.reportsto 
-
-
-
-
+SELECT
+    e.Id,
+    CONCAT(e.TitleOfCourtesy, ' ', e.FirstName, ' ', e.LastName) AS [Name],
+    CASE 
+        WHEN e2.Id IS NULL
+        THEN 'Nobody!'
+        ELSE CONCAT(e2.TitleOfCourtesy, ' ', e2.FirstName, ' ', e2.LastName)
+    END AS [Reports to]
+FROM company.employees e 
+LEFT JOIN company.employees e2 ON e2.Id = e.ReportsTo
 
 select * from company.employees
