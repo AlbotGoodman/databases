@@ -137,7 +137,6 @@ class CustomerOverview(Base):
     __tablename__ = "customer_overview"
     __table_args__ = {'extend_existing': True}
 
-    # id, customer, membership_level, total_orders, total_amount, average_rating
     id: Mapped[int] = mapped_column(primary_key=True)
     customer: Mapped[str] = mapped_column(String(64))
     membership_level: Mapped[str] = mapped_column(String(10))

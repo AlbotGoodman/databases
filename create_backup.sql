@@ -1,0 +1,1 @@
+backup database bookstore to disk = '/var/opt/mssql/data/AndersSanderli.bak';
